@@ -13,7 +13,7 @@ public class ProcessManager {
         try {
             this.process = Runtime.getRuntime().exec(processCommand);
         } catch (final IOException exception) {
-            exception.printStackTrace();
+            SameLoggerObject.getSameLoggerObject().getLogger().warning(exception.getMessage());
         }
     }
 
@@ -41,7 +41,7 @@ public class ProcessManager {
         try {
             Thread.sleep(time);
         } catch (final InterruptedException exception) {
-            exception.printStackTrace();
+            SameLoggerObject.getSameLoggerObject().getLogger().warning(exception.getMessage());
         }
     }
 

@@ -1,5 +1,7 @@
 package de.mint.logger.utilservice;
 
+import de.mint.logger.objectservice.SameLoggerObject;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -21,7 +23,7 @@ public class FileInterpreter {
         try {
             return file.createNewFile();
         } catch (final SecurityException | IOException exception) {
-            exception.printStackTrace();
+            SameLoggerObject.getSameLoggerObject().getLogger().warning(exception.getMessage());
             return false;
         }
     }
@@ -31,7 +33,7 @@ public class FileInterpreter {
         try {
             return file.delete();
         } catch (final SecurityException exception) {
-            exception.printStackTrace();
+            SameLoggerObject.getSameLoggerObject().getLogger().warning(exception.getMessage());
             return false;
         }
     }
@@ -41,7 +43,7 @@ public class FileInterpreter {
         try {
             return directory.mkdir();
         } catch (final SecurityException exception) {
-            exception.printStackTrace();
+            SameLoggerObject.getSameLoggerObject().getLogger().warning(exception.getMessage());
             return false;
         }
     }

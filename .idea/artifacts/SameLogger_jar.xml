@@ -6,6 +6,9 @@
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
       </element>
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/apache/maven/maven-model/3.6.3/maven-model-3.6.3.jar" path-in-jar="/" />
+      <element id="file-copy" path="$PROJECT_DIR$/pom.xml" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/codehaus/plexus/plexus-utils/3.2.1/plexus-utils-3.2.1.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

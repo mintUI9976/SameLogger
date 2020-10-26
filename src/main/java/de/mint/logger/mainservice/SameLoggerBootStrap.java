@@ -1,6 +1,7 @@
 package de.mint.logger.mainservice;
 
 import de.mint.logger.objectservice.SameLoggerObject;
+import de.mint.logger.utilservice.Logger;
 
 import java.io.*;
 import java.util.Arrays;
@@ -12,9 +13,6 @@ import java.util.stream.Collectors;
 public class SameLoggerBootStrap {
 
     private FileWriter fileWriter;
-    private final String version = "v0.0.1";
-    private final String developer = "mint (Niklas)";
-    private final String github = "https://github.com/mInT-runs";
     private final UUID uuid = UUID.randomUUID();
     private final String fileName = "SameLogger/SameLogger_" + this.uuid + ".log";
 
@@ -68,7 +66,7 @@ public class SameLoggerBootStrap {
                         timer.cancel();
                     }
                 } catch (final IOException exception) {
-                    exception.printStackTrace();
+                    SameLoggerObject.getSameLoggerObject().getLogger().warning(exception.getMessage());
                 }
             }
         }, 0, 1);
@@ -87,7 +85,7 @@ public class SameLoggerBootStrap {
             try {
                 this.initializedLoggerRunnable(this.checkIsJarFile(command) ? SameLoggerObject.getSameLoggerObject().getProcessManager().inputStream() : SameLoggerObject.getSameLoggerObject().getProcessManager().errorStream());
             } catch (final IOException exception) {
-                exception.printStackTrace();
+                SameLoggerObject.getSameLoggerObject().getLogger().warning(exception.getMessage());
             }
         } else {
             System.exit(-1);
@@ -118,19 +116,12 @@ public class SameLoggerBootStrap {
                 "  ___) | (_| | | | | | |  __/ |__| (_) | (_| | (_| |  __/ |   \n" +
                 " |____/ \\__,_|_| |_| |_|\\___|_____\\___/ \\__, |\\__, |\\___|_|   \n" +
                 "                                        |___/ |___/           \n");
-        System.out.println("\nversion: " + this.version + " - developer: " + this.developer + " - github: " + this.github + "\n");
-    }
-
-    public String getVersion() {
-        return version;
-    }
-
-    public String getDeveloper() {
-        return developer;
-    }
-
-    public String getGithub() {
-        return github;
+        SameLoggerObject.getSameLoggerObject().getLogger().info(SameLoggerObject.getSameLoggerObject().getLogger().getPOMInformation(Logger.PomAllocation.DESCRIPTION).toString()+"\n");
+        SameLoggerObject.getSameLoggerObject().getLogger().info("Developer: "+SameLoggerObject.getSameLoggerObject().getLogger().getPOMInformation(Logger.PomAllocation.DEVELOPERS).toString());
+        SameLoggerObject.getSameLoggerObject().getLogger().info("ArtifactID: "+SameLoggerObject.getSameLoggerObject().getLogger().getPOMInformation(Logger.PomAllocation.ARTIFACT_ID).toString());
+        SameLoggerObject.getSameLoggerObject().getLogger().info("Version: "+SameLoggerObject.getSameLoggerObject().getLogger().getPOMInformation(Logger.PomAllocation.VERSION).toString());
+        SameLoggerObject.getSameLoggerObject().getLogger().info("GroupID: "+SameLoggerObject.getSameLoggerObject().getLogger().getPOMInformation(Logger.PomAllocation.GROUP_ID).toString());
+        SameLoggerObject.getSameLoggerObject().getLogger().info("Github: "+SameLoggerObject.getSameLoggerObject().getLogger().getPOMInformation(Logger.PomAllocation.ORGANISATION).toString()+"\n");
     }
 
     public UUID getUuid() {

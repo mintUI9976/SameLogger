@@ -18,7 +18,7 @@ public class ShutdownHook {
             SameLoggerObject.getSameLoggerObject().getLogger().info("The file '" + SameLoggerObject.getSameLoggerObject().getSameLoggerBootStrap().getFileName() + "' was saved successfully");
             SameLoggerObject.getSameLoggerObject().getLogger().info("The logger is now powered down");
         } catch (final IOException exception) {
-            exception.printStackTrace();
+            SameLoggerObject.getSameLoggerObject().getLogger().warning(exception.getMessage());
         }
     }
 

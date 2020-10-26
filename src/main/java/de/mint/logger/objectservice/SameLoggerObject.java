@@ -1,5 +1,6 @@
 package de.mint.logger.objectservice;
 
+import de.mint.logger.handlerservice.JarHandler;
 import de.mint.logger.mainservice.SameLoggerBootStrap;
 import de.mint.logger.utilservice.FileInterpreter;
 import de.mint.logger.utilservice.Logger;
@@ -19,6 +20,12 @@ public class SameLoggerObject {
     private final ProcessManager processManager = new ProcessManager();
 
     private final SameLoggerBootStrap sameLoggerBootStrap = new SameLoggerBootStrap();
+
+    private final JarHandler jarHandler = new JarHandler();
+
+    public JarHandler getJarHandler() {
+        return jarHandler;
+    }
 
     public SameLoggerBootStrap getSameLoggerBootStrap() {
         return this.sameLoggerBootStrap;

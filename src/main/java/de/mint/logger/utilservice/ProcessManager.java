@@ -45,7 +45,11 @@ public class ProcessManager {
         }
     }
 
-    public InputStream inputStreamOfProcess() {
+    public InputStream inputStream() {
+        return this.process.getInputStream();
+    }
+
+    public InputStream errorStream() {
         return this.process.getErrorStream();
     }
 

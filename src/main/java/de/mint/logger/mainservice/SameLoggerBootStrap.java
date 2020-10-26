@@ -2,10 +2,7 @@ package de.mint.logger.mainservice;
 
 import de.mint.logger.objectservice.SameLoggerObject;
 
-import java.io.BufferedReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.Arrays;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -50,10 +47,10 @@ public class SameLoggerBootStrap {
         }
     }
 
-    private void initializedLoggerRunnable() throws IOException {
+    private void initializedLoggerRunnable(final InputStream inputStream) throws IOException {
         this.fileWriter = new FileWriter(this.fileName);
         final Timer timer = new Timer();
-        final InputStreamReader inputStreamReader = new InputStreamReader(SameLoggerObject.getSameLoggerObject().getProcessManager().inputStreamOfProcess());
+        final InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
         final BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         timer.scheduleAtFixedRate(new TimerTask() {
             String line;
@@ -88,13 +85,22 @@ public class SameLoggerBootStrap {
                 SameLoggerObject.getSameLoggerObject().getProcessManager().executeProcess(stringBuilder);
             }
             try {
-                this.initializedLoggerRunnable();
+                this.initializedLoggerRunnable(this.checkIsJarFile(command) ? SameLoggerObject.getSameLoggerObject().getProcessManager().inputStream() : SameLoggerObject.getSameLoggerObject().getProcessManager().errorStream());
             } catch (final IOException exception) {
                 exception.printStackTrace();
             }
         } else {
             System.exit(-1);
         }
+    }
+
+    private boolean checkIsJarFile(final String... command){
+        for (String strings: command) {
+            if (strings.contains("-jar") || strings.contains("java") || strings.contains(".jar")){
+                return true;
+            }
+        }
+        return false;
     }
 
     public String getFileName() {

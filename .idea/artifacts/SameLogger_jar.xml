@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="SameLogger:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/SameLogger_jar</output-path>
+    <root id="archive" name="SameLogger.jar">
+      <element id="module-output" name="SameLogger" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>

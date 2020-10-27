@@ -85,7 +85,7 @@ public class SameLoggerBootStrap {
                     SameLoggerObject.getSameLoggerObject().getLogger().warning(SameLoggerObject.getSameLoggerObject().getOutputMessages().getPoweredDown());
                     System.exit(-1);
                 } else {
-                    SameLoggerObject.getSameLoggerObject().getLogger().info(SameLoggerObject.getSameLoggerObject().getOutputMessages().getExecuteSuccessful()+"\n");
+                    SameLoggerObject.getSameLoggerObject().getLogger().info(SameLoggerObject.getSameLoggerObject().getOutputMessages().getExecuteSuccessful());
                 }
             } else {
                 final String stringBuilder = Arrays.stream(command).map(strings -> strings + " ").collect(Collectors.joining());
@@ -94,7 +94,7 @@ public class SameLoggerBootStrap {
                     SameLoggerObject.getSameLoggerObject().getLogger().warning(SameLoggerObject.getSameLoggerObject().getOutputMessages().getPoweredDown());
                     System.exit(-1);
                 } else {
-                    SameLoggerObject.getSameLoggerObject().getLogger().info(SameLoggerObject.getSameLoggerObject().getOutputMessages().getExecuteSuccessful()+"\n");
+                    SameLoggerObject.getSameLoggerObject().getLogger().info(SameLoggerObject.getSameLoggerObject().getOutputMessages().getExecuteSuccessful());
                 }
             }
             try {
@@ -110,9 +110,11 @@ public class SameLoggerBootStrap {
     private boolean checkIsJarFile(final String... command) {
         for (final String strings : command) {
             if (strings.contains("-jar") || strings.contains("java") || strings.contains(".jar")) {
+                SameLoggerObject.getSameLoggerObject().getLogger().info(SameLoggerObject.getSameLoggerObject().getOutputMessages().getProcessIsInputStream()+"\n");
                 return true;
             }
         }
+        SameLoggerObject.getSameLoggerObject().getLogger().info(SameLoggerObject.getSameLoggerObject().getOutputMessages().getProcessIsErrorStream()+"\n");
         return false;
     }
 

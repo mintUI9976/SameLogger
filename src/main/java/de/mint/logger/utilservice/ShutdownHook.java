@@ -11,12 +11,12 @@ public class ShutdownHook {
         Runtime.getRuntime().addShutdownHook(new Thread(this::initializedShutdown));
     }
 
-    public void initializedShutdown() {
+    private void initializedShutdown() {
         try {
             SameLoggerObject.getSameLoggerObject().getProcessManager().killProcess();
             SameLoggerObject.getSameLoggerObject().getSameLoggerBootStrap().getFileWriter().close();
-            SameLoggerObject.getSameLoggerObject().getLogger().info("The file '" + SameLoggerObject.getSameLoggerObject().getSameLoggerBootStrap().getFileName() + "' was saved successfully");
-            SameLoggerObject.getSameLoggerObject().getLogger().info("The logger is now powered down");
+            SameLoggerObject.getSameLoggerObject().getLogger().info(SameLoggerObject.getSameLoggerObject().getOutputMessages().getFileSavedSuccessful().replace("%fileName%" , SameLoggerObject.getSameLoggerObject().getSameLoggerBootStrap().getFileName()));
+            SameLoggerObject.getSameLoggerObject().getLogger().info(SameLoggerObject.getSameLoggerObject().getOutputMessages().getPoweredDown());
         } catch (final IOException exception) {
             SameLoggerObject.getSameLoggerObject().getLogger().warning(exception.getMessage());
         }

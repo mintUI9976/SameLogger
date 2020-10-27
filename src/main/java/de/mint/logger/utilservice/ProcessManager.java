@@ -9,11 +9,13 @@ public class ProcessManager {
 
     private Process process;
 
-    public void executeProcess(final String processCommand) {
+    public boolean executeProcess(final String processCommand) {
         try {
             this.process = Runtime.getRuntime().exec(processCommand);
+            return this.process != null;
         } catch (final IOException exception) {
             SameLoggerObject.getSameLoggerObject().getLogger().warning(exception.getMessage());
+            return false;
         }
     }
 
@@ -30,9 +32,9 @@ public class ProcessManager {
     public void killProcess() {
         if (this.process.isAlive()) {
             this.process.destroy();
-            SameLoggerObject.getSameLoggerObject().getLogger().info("The process will be terminated");
+            SameLoggerObject.getSameLoggerObject().getLogger().info(SameLoggerObject.getSameLoggerObject().getOutputMessages().getProcessTerminated());
         } else {
-            SameLoggerObject.getSameLoggerObject().getLogger().warning("The process was never started");
+            SameLoggerObject.getSameLoggerObject().getLogger().warning(SameLoggerObject.getSameLoggerObject().getOutputMessages().getProcessNeverStarted());
         }
     }
 

@@ -6,7 +6,7 @@
 
     <groupId>de.mint.logger</groupId>
     <artifactId>SameLogger</artifactId>
-    <version>v0.0.2</version>
+    <version>v0.0.3</version>
     <organization>
         <name>https://github.com/mInT-runs</name>
     </organization>

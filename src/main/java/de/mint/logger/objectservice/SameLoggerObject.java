@@ -2,10 +2,7 @@ package de.mint.logger.objectservice;
 
 import de.mint.logger.handlerservice.JarHandler;
 import de.mint.logger.mainservice.SameLoggerBootStrap;
-import de.mint.logger.utilservice.FileInterpreter;
-import de.mint.logger.utilservice.Logger;
-import de.mint.logger.utilservice.ProcessManager;
-import de.mint.logger.utilservice.ShutdownHook;
+import de.mint.logger.utilservice.*;
 
 public class SameLoggerObject {
 
@@ -22,6 +19,12 @@ public class SameLoggerObject {
     private final SameLoggerBootStrap sameLoggerBootStrap = new SameLoggerBootStrap();
 
     private final JarHandler jarHandler = new JarHandler();
+
+    private final OutputMessages outputMessages = new OutputMessages();
+
+    public OutputMessages getOutputMessages() {
+        return outputMessages;
+    }
 
     public JarHandler getJarHandler() {
         return jarHandler;

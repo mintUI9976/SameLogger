@@ -13,18 +13,18 @@ public class Logger {
     private final StringBuilder stringBuilder = new StringBuilder();
 
     public void info(final String message) {
-        System.out.println("|" + Level.INFO.name() + "|" + SameLoggerObject.getSameLoggerObject().getSameLoggerBootStrap().getDate() + " | " + message);
+        System.out.println("|" + level.INFO.name() + "|" + SameLoggerObject.getSameLoggerObject().getSameLoggerBootStrap().getDate() + " | " + message);
     }
 
     public void warning(final String message) {
-        System.out.println("|" + Level.WARNING.name() + "|" + SameLoggerObject.getSameLoggerObject().getSameLoggerBootStrap().getDate() + " | " + message);
+        System.out.println("|" + level.WARNING.name() + "|" + SameLoggerObject.getSameLoggerObject().getSameLoggerBootStrap().getDate() + " | " + message);
     }
 
     public String stringRework(final String message) {
-        return "|" + Level.LOG.name() + "|" + SameLoggerObject.getSameLoggerObject().getSameLoggerBootStrap().getDate() + " | " + message;
+        return "|" + level.LOG.name() + "|" + SameLoggerObject.getSameLoggerObject().getSameLoggerBootStrap().getDate() + " | " + message;
     }
 
-    public Object getPOMInformation(final PomAllocation pomAllocation) {
+    public Object getPOMInformation(final pomAllocation pomAllocation) {
         try {
             final Model model = this.mavenXpp3Reader.read(SameLoggerObject.getSameLoggerObject().getJarHandler().getPomFromJar());
             switch (pomAllocation) {
@@ -90,7 +90,7 @@ public class Logger {
         }
     }
 
-    public enum PomAllocation {
+    public enum pomAllocation {
         VERSION,
         DEVELOPERS,
         ID,
@@ -104,7 +104,7 @@ public class Logger {
         ARTIFACT_ID,
     }
 
-    public enum Level {
+    public enum level {
         INFO,
         WARNING,
         LOG,

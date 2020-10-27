@@ -139,12 +139,12 @@ public class SameLoggerBootStrap {
                 "  ___) | (_| | | | | | |  __/ |__| (_) | (_| | (_| |  __/ |   \n" +
                 " |____/ \\__,_|_| |_| |_|\\___|_____\\___/ \\__, |\\__, |\\___|_|   \n" +
                 "                                        |___/ |___/           \n");
-        SameLoggerObject.getSameLoggerObject().getLogger().info(SameLoggerObject.getSameLoggerObject().getLogger().getPOMInformation(Logger.PomAllocation.DESCRIPTION).toString() + "\n");
-        SameLoggerObject.getSameLoggerObject().getLogger().info("Developer: " + SameLoggerObject.getSameLoggerObject().getLogger().getPOMInformation(Logger.PomAllocation.DEVELOPERS).toString());
-        SameLoggerObject.getSameLoggerObject().getLogger().info("ArtifactID: " + SameLoggerObject.getSameLoggerObject().getLogger().getPOMInformation(Logger.PomAllocation.ARTIFACT_ID).toString());
-        SameLoggerObject.getSameLoggerObject().getLogger().info("Version: " + SameLoggerObject.getSameLoggerObject().getLogger().getPOMInformation(Logger.PomAllocation.VERSION).toString());
-        SameLoggerObject.getSameLoggerObject().getLogger().info("GroupID: " + SameLoggerObject.getSameLoggerObject().getLogger().getPOMInformation(Logger.PomAllocation.GROUP_ID).toString());
-        SameLoggerObject.getSameLoggerObject().getLogger().info("Github: " + SameLoggerObject.getSameLoggerObject().getLogger().getPOMInformation(Logger.PomAllocation.ORGANISATION).toString() + "\n");
+        SameLoggerObject.getSameLoggerObject().getLogger().info(SameLoggerObject.getSameLoggerObject().getLogger().getPOMInformation(Logger.pomAllocation.DESCRIPTION).toString() + "\n");
+        SameLoggerObject.getSameLoggerObject().getLogger().info("Developer: " + SameLoggerObject.getSameLoggerObject().getLogger().getPOMInformation(Logger.pomAllocation.DEVELOPERS).toString());
+        SameLoggerObject.getSameLoggerObject().getLogger().info("ArtifactID: " + SameLoggerObject.getSameLoggerObject().getLogger().getPOMInformation(Logger.pomAllocation.ARTIFACT_ID).toString());
+        SameLoggerObject.getSameLoggerObject().getLogger().info("Version: " + SameLoggerObject.getSameLoggerObject().getLogger().getPOMInformation(Logger.pomAllocation.VERSION).toString());
+        SameLoggerObject.getSameLoggerObject().getLogger().info("GroupID: " + SameLoggerObject.getSameLoggerObject().getLogger().getPOMInformation(Logger.pomAllocation.GROUP_ID).toString());
+        SameLoggerObject.getSameLoggerObject().getLogger().info("Github: " + SameLoggerObject.getSameLoggerObject().getLogger().getPOMInformation(Logger.pomAllocation.ORGANISATION).toString() + "\n");
     }
 
 }

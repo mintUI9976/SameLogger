@@ -1,6 +1,6 @@
 # SameLogger
 
-[![Build Status](https://img.shields.io/badge/build-passed-brightgreen?style=for-the-badge)](https://github.com/mInT-runs/SameLogger/commits/main)
+[![Build Status](https://img.shields.io/badge/build-passed-brightgreen?style=for-the-badge)](https://github.com/mInT-runs/SameLogger/commits/main) [![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/mInT-runs/SameLogger?include_prereleases&style=for-the-badge)](https://github.com/mInT-runs/SameLogger/releases)
 
 SameLogger is an Logger to handle and save (Error/Input) stream of all executable files!
 
@@ -8,14 +8,10 @@ SameLogger is an Logger to handle and save (Error/Input) stream of all executabl
   - executable with Jvm hotspot and java9
   - own print logger
   - asynchrony print/save schedule
+  - handle error/input stream
 
-# Coming Soon
-##### ...
 # Utilization:
-##### ...
-# Command:
-##### ...
-# Version
-##### ...
-# Download
+```Java
+java -jar SameLogger.jar <executeable file> / <executable command>
+```
 
